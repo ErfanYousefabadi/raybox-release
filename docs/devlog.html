@@ -1,0 +1,46 @@
+<!-- devlog.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raybox | Devlog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="devlog.html" class="active">Devlog</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1>Development Log</h1>
+        <div class="devlog-posts">
+            <article class="devlog-post">
+                <h2>The Logic of Raycasting</h2>
+                <p>Raycasting creates a 3D illusion from 2D data. Imagine standing in a grid-based maze and casting rays in every direction you look. Each ray travels until it hits a wall, then measures the distance. Closer walls appear taller on screen, farther walls appear shorter. By repeating this for every vertical slice of your screen, you build a perspective view—all without true 3D graphics. It's a clever trick that turns math into immersion.</p>
+            </article>
+            <article class="devlog-post">
+                <h2>The Copy-Paste Coordinate Bug</h2>
+                <p>When implementing game save persistence, I wrote player coordinates to a file with a classic copy-paste error:</p>
+                <code>print(player.x, player.x)  // Oops: second should be player.y</code>
+                <p>The bug was invisible in the code—two player.x calls look nearly identical at a glance. But when loading, the player's Y coordinate would read as the X value, spawning them in mathematically impossible positions. Walls would render at bizarre angles because the raycasting algorithm received contradictory coordinate data.
+
+It took systematic testing to isolate: creating save points at specific locations, then checking where the game thought I was after reloading. The lesson wasn't about attention to detail—it was about how our brains see what we expect to see, not what's actually there.</p>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Erfan Yousefabadi - 404522133</p>
+            <p>Open Source License 2026 ©</p>
+        </div>
+    </footer>
+</body>
+</html>
