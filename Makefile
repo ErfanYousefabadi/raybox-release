@@ -10,11 +10,8 @@ c: raycaster
 run: raycaster
 	./raycaster
 
-# raycaster: main.c map.c player.c raycaster.c persistence.c
-# 	gcc main.c map.c player.c raycaster.c persistence.c -o raycaster $(HFLAGS) $(CFLAGS)
-
-raycaster: lib/map.o lib/persistence.o lib/player.o lib/raycaster.o
-	gcc src/main.c lib/map.o lib/persistence.o lib/player.o lib/raycaster.o -o raycaster $(HFLAGS) $(CFLAGS)
+raycaster: src/main.c src/map.c src/persistence.c src/player.c src/raycaster.c
+	gcc src/main.c src/map.c src/persistence.c src/player.c src/raycaster.c -o raycaster $(HFLAGS) $(CFLAGS)
 
 clean:
 	rm raycaster
